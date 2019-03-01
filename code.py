@@ -37,7 +37,6 @@ print 'Pan position:', status.Position.PanTilt._x
 print 'Tilt position:', status.Position.PanTilt._y
 print 'Zoom position:', status.Position.Zoom._x
 
-
 # Get PTZ configuration options for getting option ranges
 request = ptz.create_type('GetConfigurationOptions')
 request.ConfigurationToken = media_profile.PTZConfiguration._token
@@ -57,12 +56,9 @@ request_s.PanTilt = True
 request_s.Zoom = True
 print 'Created stop movement request'
 
-
 #Continuous move | up down left right
 request_c = ptz.create_type('ContinuousMove')
 request_c.ProfileToken = media_profile._token
-
-#ptz.Stop({'ProfileToken': media_profile._token})
 
 #UP
 request_c.Velocity.PanTilt._x = 0
